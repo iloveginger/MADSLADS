@@ -13,6 +13,9 @@ class Goblin{
     int take__damage(int atk_damage){
 
     }
+    int gethealth(){
+        return health;
+    }
 };
 
 #endif
