@@ -1,18 +1,19 @@
-#ifndef GOBLIN_h
-#define GOBLIN_h
+#ifndef PLAYER_h
+#define PLAYER_h
 
-class Goblin{
+class Player{
     protected:
     int health;
     int mana;
     int attack_value;
     public:
-    Goblin(){}
+    Player(){}
     int attack();
 
     int take__damage(int atk_damage){
-
+        
     }
+
     int gethealth(){
         return health;
     }
