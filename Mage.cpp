@@ -3,7 +3,8 @@
 using namespace std;
 
 Mage::Mage(){
-    cout<<" A Player appears!!\n";
+    cout<<" A Mage has Teleported in !\n";
+   
     health = 30;
     attack_value = 20;
     mana = 70;
