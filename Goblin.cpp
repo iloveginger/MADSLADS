@@ -15,3 +15,7 @@ int Goblin::attack(){
 int Goblin::take__damage(int atk_damage){
     health =  health -  atk_damage;
 }
+
+int Goblin::gethealth(){
+    return health;
+}

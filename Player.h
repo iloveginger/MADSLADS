@@ -7,16 +7,12 @@ class Player{
     int mana;
     int attack_value;
     public:
-    Player(){}
+    Player();
     int attack();
 
-    int take__damage(int atk_damage){
-        
-    }
+    int take__damage(int atk_damage);
 
-    int gethealth(){
-        return health;
-    }
+    int gethealth();
 };
 
 #endif
