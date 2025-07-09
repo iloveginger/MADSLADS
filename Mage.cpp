@@ -4,9 +4,9 @@ using namespace std;
 
 Mage::Mage(){
     cout<<" A Player appears!!\n";
-    health = 50;
-    attack_value = 30;
-    mana = 30;
+    health = 30;
+    attack_value = 20;
+    mana = 70;
 }
 
 int Mage::attack(){
