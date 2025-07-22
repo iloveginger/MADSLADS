@@ -18,3 +18,4 @@ int Player::take__damage(int atk_damage){
 int Player::gethealth(){
     return health;
 }
+
