@@ -6,6 +6,8 @@ class Player{
     int health;
     int mana;
     int attack_value;
+    int health_potion;
+    int health_potion_count;
     public:
     Player();
     int attack();
@@ -13,6 +15,8 @@ class Player{
     int take__damage(int atk_damage);
 
     int gethealth();
+
+    int health__potion(int health_placeholder);
 };
 
 #endif

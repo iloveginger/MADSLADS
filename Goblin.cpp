@@ -5,7 +5,7 @@ using namespace std;
 Goblin::Goblin(){
     cout<<" A wild goblin appears!!\n";
     health = 40;
-    attack_value = 40;
+    attack_value = 5;
     mana = 10;
 }
 
