@@ -15,19 +15,19 @@ int main()
 
     Goblin G1;
 
-    int player__health = P1.gethealth();
-    int goblin__health = G1.gethealth();
+    int player_health = P1.gethealth();
+    int goblin_health = G1.gethealth();
     char end_choice;
     int action;                       // stores between the first two actions ie. Attack and inventory
     int atk_action;                   // stores between the second two actions ie. Slash and punch (punch hasnt been made)
-    int player__damage = P1.attack(); // stores players attack damage in player__damage
-    int goblin__damage = G1.attack(); // stores players attack damage in player__damage
+    int player_damage = P1.attack(); // stores players attack damage in player_damage
+    int goblin__damage = G1.attack(); // stores players attack damage in player_damage
     int inv_action;                   // stores players choice for inventory
 
-    while (player__health > 0 && goblin__health > 0)
+    while (player_health > 0 && goblin_health > 0)
     {
-        player__health = P1.gethealth();
-        std::cout << "Player Health: " << player__health << "\t Goblin Health : " << goblin__health << std::endl; // Displays player health
+        player_health = P1.gethealth();
+        std::cout << "Player Health: " << player_health << "\t Goblin Health : " << goblin_health << std::endl; // Displays player health
 
         std::cout << "Choose\n";
         std::cout << "1. Attack\t 2.Inventory\n";
@@ -40,10 +40,10 @@ int main()
             switch (atk_action)
             {
             case 1:
-                G1.take__damage(player__damage); // player__damage which is 40 is passed into take_damage function for goblin and the health of goblin is reduced by player__damage
+                G1.take__damage(player_damage); // player_damage which is 40 is passed into take_damage function for goblin and the health of goblin is reduced by player__damage
                 //** NOTE ** : For now this is hardcode only for goblin but later since the enemy will be chosen in random (ie maybe goblin or mage or orc) a placeholder should be kept for those
 
-                goblin__health = G1.gethealth(); // stores the health that is run by G1.gethealth() into goblin__health
+                goblin_health = G1.gethealth(); // stores the health that is run by G1.gethealth() into goblin_health
                 break;
             }
             break;
@@ -54,8 +54,8 @@ int main()
             switch (inv_action)
             {
             case 1:
-                P1.health__potion(player__health);
-                player__health = P1.gethealth();
+                P1.health__potion(player_health);
+                player_health = P1.gethealth();
                 
                 break;
             }
@@ -64,11 +64,11 @@ int main()
         system("cls");
         std::cout << "\nGOBLIN ATTACKS!!!\n";
         P1.take__damage(goblin__damage);
-        // player__health = P1.gethealth();
+        // player_health = P1.gethealth();
         
     }
 
-    if(goblin__health<0){
+    if(goblin_health<0){
         std::cout << "\nGOBLIN DEAD\n";
     }
     std::cout << '\n'
