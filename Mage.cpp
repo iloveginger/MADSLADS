@@ -3,7 +3,7 @@
 using namespace std;
 
 Mage::Mage(){
-    cout<<" A Mage has Teleported in !\n";
+    // cout<<"\n A Mage has Teleported in !\n";
    
     health = 30;
     attack_value = 20;
