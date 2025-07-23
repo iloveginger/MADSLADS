@@ -4,7 +4,7 @@
 @echo off 
 
 
-g++ main.cpp Player.cpp Goblin.cpp Mage.cpp -o MADLADS.exe
+g++ main.cpp Player.cpp Goblin.cpp Mage.cpp Orc.cpp -o MADLADS.exe
 
 :: Here we check if the Compilation was successful or not
 ::So since MADLADS.exe is overwriiten each time this if else loop just checks
