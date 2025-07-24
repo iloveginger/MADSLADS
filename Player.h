@@ -1,14 +1,16 @@
 #ifndef PLAYER_h
 #define PLAYER_h
 
-class Player{
-    protected:
+class Player
+{
+protected:
     int health;
     int mana;
     int attack_value;
     int health_potion;
     int health_potion_count;
-    public:
+
+public:
     Player();
     int attack();
 
@@ -16,7 +18,7 @@ class Player{
 
     int gethealth();
 
-    int health__potion(int health_placeholder);
+    void health__potion();
 };
 
 #endif
