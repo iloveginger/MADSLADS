@@ -89,7 +89,7 @@ int main()
                         enemy__health = O1.gethealth();
                     }
                     break;
-                // You can later implement Punch (case 2) here
+                    // You can later implement Punch (case 2) here
                 }
                 break;
 
@@ -100,21 +100,25 @@ int main()
                 switch (inv_action)
                 {
                 case 1:
-                    P1.health__potion(player__health);
-                    player__health = P1.gethealth();
+
+                    P1.health__potion();
+                    system("pause"); // works same as in bat file before cls happens pauses to show remaining potions
+
                     break;
-                // Add more inventory logic here
+                    // Add more inventory logic here
                 }
                 break;
             }
 
             system("cls");
-            std::cout << "\n" << enemy__name << " \nATTACKS!!!\n";
+            std::cout << "\n"
+                      << enemy__name << " \nATTACKS!!!\n";
             P1.take__damage(enemy__damage);
 
             if (enemy__health <= 0)
             {
-                std::cout << "\n" << enemy__name << " DEAD\n";
+                std::cout << "\n"
+                          << enemy__name << " DEAD\n";
             }
 
             if (P1.gethealth() <= 0)
