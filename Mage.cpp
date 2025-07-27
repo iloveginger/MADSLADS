@@ -6,7 +6,7 @@ Mage::Mage(){
     // cout<<"\n A Mage has Teleported in !\n";
    
     health = 30;
-    attack_value = 20;
+    attack_value = 30;
     mana = 70;
 }
 

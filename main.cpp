@@ -24,13 +24,15 @@ int main()
     char end_choice;
     int action;
     int atk_action;
-    int player__damage = P1.attack();
+    int player__damage_slash = P1.slashattack();
+    int player__damage_punch = P1.punchattack();
     int enemy__damage = 0;
     int inv_action;
     int count = 0;
 
     while (P1.gethealth() > 0)
     {
+
         int random__enemy = rand() % 3;
         if (random__enemy == 0)
         {
@@ -59,6 +61,7 @@ int main()
             count++;
             std::cout << "CYCLES : " << count << "\n";
             player__health = P1.gethealth();
+
             std::cout << "Player Health: " << player__health << "\t" << enemy__name << "\tHealth : " << enemy__health << std::endl;
 
             std::cout << "Choose\n";
@@ -73,29 +76,47 @@ int main()
                 switch (atk_action)
                 {
                 case 1:
+                    player__damage_slash = P1.slashattack();
                     if (random__enemy == 0)
                     {
-                        G1.take__damage(player__damage);
+                        G1.take__damage(player__damage_slash);
                         enemy__health = G1.gethealth();
                     }
                     else if (random__enemy == 1)
                     {
-                        M1.take__damage(player__damage);
+                        M1.take__damage(player__damage_slash);
                         enemy__health = M1.gethealth();
                     }
                     else
                     {
-                        O1.take__damage(player__damage);
+                        O1.take__damage(player__damage_slash);
                         enemy__health = O1.gethealth();
                     }
                     break;
-                    // You can later implement Punch (case 2) here
+                case 2:
+                    player__damage_punch = P1.punchattack();
+                    if (random__enemy == 0)
+                    {
+                        G1.take__damage(player__damage_punch);
+                        enemy__health = G1.gethealth();
+                    }
+                    else if (random__enemy == 1)
+                    {
+                        M1.take__damage(player__damage_punch);
+                        enemy__health = M1.gethealth();
+                    }
+                    else
+                    {
+                        O1.take__damage(player__damage_punch);
+                        enemy__health = O1.gethealth();
+                    }
+                    break;
                 }
                 break;
 
             case 2:
                 std::cout << "Choose\n";
-                std::cout << "1. Health Potion\t 2. Attack Potion\t 3. Defense Potion\n";
+                std::cout << "1. Health Potion\t 2. Defense Potion\t 3. Attack Potion\n";
                 std::cin >> inv_action;
                 switch (inv_action)
                 {
@@ -105,7 +126,14 @@ int main()
                     system("pause"); // works same as in bat file before cls happens pauses to show remaining potions
 
                     break;
-                    // Add more inventory logic here
+                case 2:
+                    P1.defence__potion();
+                    system("pause");
+                    break;
+                case 3:
+                    P1.attack__potion();
+                    system("pause");
+                    break;
                 }
                 break;
             }
