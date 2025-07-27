@@ -5,7 +5,7 @@ using namespace std;
 Orc::Orc(){
     // cout<<"\n A wild Orc appears!!\n";
     health = 40;
-    attack_value = 5;
+    attack_value = 25;
     mana = 10;
 }
 
