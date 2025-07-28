@@ -33,9 +33,11 @@ int Player::punchattack()
 int Player::take__damage(int atk_damage)
 {
     int defence_damage = atk_damage - tempo_defence_bonus;
-
+ 
     health -= defence_damage;
-
+    if (health>50){
+        health=50;
+    }
     tempo_defence_bonus = 0;
     return health;
 }
