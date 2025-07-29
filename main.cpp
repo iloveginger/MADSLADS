@@ -21,6 +21,8 @@ void printHeader(const std::string& title) {
     printLine();
 }
 
+
+
 int main()
 {
     Player P1;
@@ -61,10 +63,12 @@ int main()
             enemy__name = "ORC";
         }
 
-        printHeader("A wild " + enemy__name + " appears!");
+        
 
         while (P1.gethealth() > 0 && enemy__health > 0)
+
         {
+            printHeader("A wild " + enemy__name + " appears!");
             count++;
             player__health = P1.gethealth();
 
