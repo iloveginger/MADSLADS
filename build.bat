@@ -11,11 +11,15 @@ g++ main.cpp Player.cpp Goblin.cpp Mage.cpp Orc.cpp -o MADLADS.exe
 ::if MADLADS.exe was created successfully or not
 ::NOTE - use  start cmd /k MADLADS.exe If you want the game to open in a new window and instead of /k use /c if u want the new window to auto close
 IF EXIST MADLADS.exe (
+    :: Play mp3 asynchronously with Windows Media Player
+    start "" "C:\Program Files\Windows Media Player\wmplayer.exe" /play /close "C:\Users\USER\Documents\College\Classes\MADSLADS\MADSLADS\Chill Music.mp3"
     ::Displays this message if compilation was successful
     echo NOW RUNNING MADLADS... 
     start cmd /c MADLADS.exe
-    powershell -c (New-Object Media.SoundPlayer "C:\Users\USER\Documents\College\Classes\MADSLADS\MADSLADS\Wild Pokémon Battle - Pokémon RedBlueYellow Soundtrack.wav").PlaySync()
 
+
+
+        
 ) ELSE (
     :: Displays message if some error occured and MADLADS Wasent created
     echo ERROR OCCURED
