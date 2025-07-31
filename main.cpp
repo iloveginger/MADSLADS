@@ -1,3 +1,5 @@
+//SHREYANSH VALORANT DELETE GARA
+//7/31/2025: i have deleted :)
 #include <iostream>
 #include <conio.h>
 #include <ctime>
@@ -5,11 +7,53 @@
 #include <string>
 #include <iomanip>
 #include <windows.h>
+#include <stdlib.h>
 #include "Player.h"
 #include "Goblin.h"
 #include "Mage.h"
 #include "Orc.h"
 
+//GET RANDOM NUMBER FOR BUSH ATTACKS 
+int getRandNo(){
+  srand(time(NULL));
+
+  int attackNum = rand()%2;
+  return attackNum;
+}
+
+//ENEMY GENERATION RANDOM VARIABLE
+//0->Goblin
+//1->Orc
+//2->Mage
+int getRandomEnemy(){
+  srand(time(NULL));
+
+  int enemyType = rand()%3;
+  return enemyType;
+}
+
+//MAP DRAWING FUNCTION
+void map_func(int hero_cp_place, int hero_pp_place);
+char map[64];  // 8x8 = 64 cells
+int bush_prev_pp;
+
+void map_func(int hero_cp_place, int hero_pp_place) {
+    for (int i = 0; i < 64; i++) {
+      std::cout << "| ";
+        
+        if (i == hero_cp_place)
+            std::cout << "*";       // Draw player symbol
+        else
+            std::cout << map[i];    // Draw original tile
+
+        std::cout << " ";
+        if ((i + 1) % 8 == 0)
+            std::cout << "|\n\n";
+    }
+
+}
+
+//K GAREKO SHREYANSHHHHH!!!!?????!!!????
 void printLine(int length = 50, char ch = '=')
 {
     for (int i = 0; i < length; ++i)
@@ -235,16 +279,10 @@ Orc slashes with his axe!
     system("cls");
 }
 
-int main()
-{
-    Player P1;
-    Goblin G1;
-    Mage M1;
-    Orc O1;
 
-    srand(time(0));
+//ATTACK ARENA FUNCTION STARTS HERE
+int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
 
-    char end_choice;
     int action, atk_action, inv_action;
     int count = 0;
     int player__health;
@@ -252,40 +290,34 @@ int main()
     int enemy__health = 0, enemy__damage = 0;
     std::string enemy__name;
     int enemy_defeat = 0;
+    int random__enemy = enemyType;
 
-    printHeader("WELCOME TO MONSTER BATTLE");
+  if(enemyType == 0){ //GOBLIN FIGHT
+    //WHY TF IS THIS HERE MOHAK?
+    // G1 = Goblin();
+    enemy__health = G1.gethealth();
+    enemy__damage = G1.attack();
+    enemy__name = "GOBLIN";
 
-    while (P1.gethealth() > 0)
-    {
-        int random__enemy = rand() % 3;
+  }else if(enemyType == 1){ //ORC FIGHT
+    
+    enemy__health = O1.gethealth();
+    enemy__damage = O1.attack();
+    enemy__name = "ORC";
 
-        if (random__enemy == 0)
-        {
-            G1 = Goblin();
-            enemy__health = G1.gethealth();
-            enemy__damage = G1.attack();
-            enemy__name = "GOBLIN";
-        }
-        else if (random__enemy == 1)
-        {
-            M1 = Mage();
-            enemy__health = M1.gethealth();
-            enemy__damage = M1.attack();
-            enemy__name = "MAGE";
-        }
-        else
-        {
-            O1 = Orc();
-            enemy__health = O1.gethealth();
-            enemy__damage = O1.attack();
-            enemy__name = "ORC";
-        }
+  }else{ //MAGE FIGHT
 
-        while (P1.gethealth() > 0 && enemy__health > 0)
+    enemy__health = M1.gethealth();
+    enemy__damage = M1.attack();
+    enemy__name = "MAGE";
+
+  }
+
+    while (P1.gethealth() > 0 && enemy__health > 0)
 
         {
-
-            count++;
+            //FROM DK: MOHAK UPDATE YOUR FKIN CODE
+            // count++;
             player__health = P1.gethealth();
             printHeader("A wild " + enemy__name + " appears!");
 
@@ -362,46 +394,95 @@ int main()
                 break;
             }
 
-            system("cls");
+}
 
-            if (enemy__health > 0)
-            {
-                std::cout << "\n"
-                          << enemy__name << " attacks!\n";
-                if (enemy__name == "GOBLIN")
-                {
-                    goblinanimation();
-                }
-                else if (enemy__name == "MAGE")
-                {
-                    mageanimation();
-                }
-                else
-                {
-                    orcanimation();
-                }
-                P1.take__damage(enemy__damage);
-            }
 
-            if (enemy__health <= 0)
-            {
-                std::cout << "\n"
-                          << enemy__name << " has been defeated!\n";
+int main()
+{
+  //OBJECT DECLARATION
+    Player P1;
+    Goblin G1;
+    Mage M1;
+    Orc O1;
 
-                enemy_defeat++;
-                system("pause");
-                break;
-            }
+    srand(time(0));
 
-            if (P1.gethealth() <= 0)
-            {
-                std::cout << "\nGAME OVER: You died.\n";
-                std::cout << "\nYou defeated :\t" << enemy_defeat << " enemies And survived :" << count << " Cycles\n";
-                break;
-            }
+    char end_choice;
+    
+    int enemyType;
+
+// Initialize map with numbers or dots
+    for (int i = 0; i < 64; i++) {
+        map[i] = '.';  // use '.' for empty cell
+        if(rand()%100<25)
+        {
+            map[i]='W';
+            bush_prev_pp=i;
         }
     }
 
+  char hero_input;
+    int hero_cp = 56;   // start at bottom-left (row 7 col 0)
+    int hero_pp = hero_cp;
+
+    //BUSH ATTACK CHANCE VARIABLE
+    int isAttacked = 0;
+
+  while (true) {
+        system("cls");
+        map_func(hero_cp, hero_pp);
+
+        std::cout << "\nUse W/A/S/D to move, Q to quit: ";
+        hero_input = getch();
+
+        hero_pp = hero_cp;
+
+        switch (tolower(hero_input)) {
+            case 'w':
+                if (hero_cp >= 8) hero_cp -= 8;
+                break;
+            case 's':
+                if (hero_cp <= 55) hero_cp += 8;
+                break;
+            case 'a':
+                if (hero_cp % 8 != 0) hero_cp -= 1;
+                break;
+            case 'd':
+                if (hero_cp % 8 != 7) hero_cp += 1;
+                break;
+            case 'q':
+                exit(0);
+        }
+
+        if(map[hero_cp] == 'W'){
+          int checkATK = getRandNo(); 
+          if(checkATK == 1){
+            isAttacked = 1;
+          }else{
+            isAttacked = 0;
+          }
+        }
+
+        //ATTACK ARENA STARTS HERE
+        if(isAttacked){
+          
+          enemyType = getRandomEnemy();
+
+          if(enemyType == 0){
+            attackArena(P1, G1, M1, O1, enemyType);
+          }else if(enemyType == 1){
+            attackArena(P1, G1, M1, O1, enemyType);
+          }else{
+            attackArena(P1, G1, M1, O1, enemyType);
+          }
+         
+        }
+
+        isAttacked = 0;
+
+    }
+
+    //EXIT PART
     printLine();
     std::cout << "\nThanks for playing!\nPress 'y' then Enter to exit.\n> ";
     std::cin >> end_choice;
