@@ -14,6 +14,8 @@ IF EXIST MADLADS.exe (
     ::Displays this message if compilation was successful
     echo NOW RUNNING MADLADS... 
     start cmd /c MADLADS.exe
+    powershell -c (New-Object Media.SoundPlayer "C:\Users\USER\Documents\College\Classes\MADSLADS\MADSLADS\Wild Pokémon Battle - Pokémon RedBlueYellow Soundtrack.wav").PlaySync()
+
 ) ELSE (
     :: Displays message if some error occured and MADLADS Wasent created
     echo ERROR OCCURED

@@ -9,6 +9,30 @@
 #include "Mage.h"
 #include "Orc.h"
 
+using namespace std;
+
+void map_func(int hero_cp_place, int hero_pp_place);
+char map[64];  // 8x8 = 64 cells
+int bush_prev_pp[64];
+
+
+
+void map_func(int hero_cp_place, int hero_pp_place) {
+    for (int i = 0; i < 64; i++) {
+        cout << "| ";
+        
+        if (i == hero_cp_place)
+            cout << "*";       // Draw player symbol
+        else
+            cout << map[i];    // Draw original tile
+
+        cout << " ";
+        if ((i + 1) % 8 == 0)
+            cout << "|\n\n";
+    }
+}
+
+
 void printLine(int length = 50, char ch = '=') {
     for (int i = 0; i < length; ++i)
         std::cout << ch;
@@ -25,13 +49,69 @@ void printHeader(const std::string& title) {
 
 int main()
 {
+
+    // Initialize map with numbers or dots
+    for (int i = 0; i < 64; i++) {
+        map[i] = '.';  // use '.' for empty cell
+        if(rand()%100<25)
+        {
+            map[i]='W';
+            bush_prev_pp[i]=map[i];
+        }
+    }
+
+    char hero_input;
+    int hero_cp = 56;   // start at bottom-left (row 7 col 0)
+    int hero_pp = hero_cp;
+
+    while (true) {
+        system("cls");
+        map_func(hero_cp, hero_pp);
+
+        cout << "\nUse W/A/S/D to move, Q to quit: ";
+        hero_input = getch();
+
+        hero_pp = hero_cp;
+
+        switch (tolower(hero_input)) {
+            case 'w':
+                if (hero_cp >= 8) hero_cp -= 8;
+                break;
+            case 's':
+                if (hero_cp <= 55) hero_cp += 8;
+                break;
+            case 'a':
+                if (hero_cp % 8 != 0) hero_cp -= 1;
+                break;
+            case 'd':
+                if (hero_cp % 8 != 7) hero_cp += 1;
+                break;
+            case 'q':
+                exit(0);
+            for(int i = 0; i<64; i++)
+            {
+            if(bush_prev_pp[i] == hero_cp )
+                {
+                    if(rand()%100 < 50){
+                        Player__Battle();
+                    }
+                }
+            }
+        }
+    }
+
+
+    //--------------------------------------------------------------------------------------//
+}
+
+void Player__Battle(){
     Player P1;
     Goblin G1;
     Mage M1;
     Orc O1;
-
+    
     srand(time(0));
-
+    
     char end_choice;
     int action, atk_action, inv_action;
     int count = 0;
@@ -39,7 +119,6 @@ int main()
     int player__damage_slash, player__damage_punch;
     int enemy__health = 0, enemy__damage = 0;
     std::string enemy__name;
-
     printHeader("WELCOME TO MONSTER BATTLE");
 
     while (P1.gethealth() > 0)
@@ -152,6 +231,4 @@ int main()
     if (end_choice == 'y') {
         system("cls");
     }
-
-    return 0;
 }
