@@ -251,7 +251,7 @@ int main()
     int player__damage_slash, player__damage_punch;
     int enemy__health = 0, enemy__damage = 0;
     std::string enemy__name;
-    int enemy_defeat=0;
+    int enemy_defeat = 0;
 
     printHeader("WELCOME TO MONSTER BATTLE");
 
@@ -387,8 +387,8 @@ int main()
             {
                 std::cout << "\n"
                           << enemy__name << " has been defeated!\n";
-                          
-                          enemy_defeat++;
+
+                enemy_defeat++;
                 system("pause");
                 break;
             }
@@ -396,7 +396,7 @@ int main()
             if (P1.gethealth() <= 0)
             {
                 std::cout << "\nGAME OVER: You died.\n";
-                 std::cout << "\nYou defeated :\t"<<enemy_defeat<<" enemies And survived :"<<count<<"Cycles\n";
+                std::cout << "\nYou defeated :\t" << enemy_defeat << " enemies And survived :" << count << " Cycles\n";
                 break;
             }
         }
