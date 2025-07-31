@@ -1,7 +1,7 @@
 #include <iostream>
 #include <windows.h>
 
-const char Battletext[] = "            BATTLE STARTED!!!   ";
+const char Welcometext[] = "            WELCOME TO MADSLADS   ";
 
 void animateLineForward(int length = 40, int delay_ms = 20) {
     for (int i = 0; i < length; ++i) {
@@ -12,9 +12,9 @@ void animateLineForward(int length = 40, int delay_ms = 20) {
     std::cout << std::endl;
 }
 
-void battlestart(int delay_ms = 20) {
-    for (int i = 0; Battletext[i] != '\0'; ++i) {
-        std::cout << Battletext[i];
+void welcomestart(int delay_ms = 20) {
+    for (int i = 0; Welcometext[i] != '\0'; ++i) {
+        std::cout << Welcometext[i];
         std::cout.flush();
         Sleep(delay_ms);
     }
@@ -26,7 +26,7 @@ void Playmusic(){
 }
 int main() {
     animateLineForward();
-    battlestart();
+    welcomestart();
     animateLineForward();
     return 0;
 }
