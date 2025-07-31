@@ -284,12 +284,11 @@ Orc slashes with his axe!
 int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
 
     int action, atk_action, inv_action;
-    int count = 0;
+    // int count = 0;
     int player__health;
     int player__damage_slash, player__damage_punch;
     int enemy__health = 0, enemy__damage = 0;
     std::string enemy__name;
-    int enemy_defeat = 0;
     int random__enemy = enemyType;
 
   if(enemyType == 0){ //GOBLIN FIGHT
@@ -314,15 +313,14 @@ int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
   }
 
     while (P1.gethealth() > 0 && enemy__health > 0)
-
         {
-            //FROM DK: MOHAK UPDATE YOUR FKIN CODE
-            // count++;
+
+          system("cls");
+
             player__health = P1.gethealth();
             printHeader("A wild " + enemy__name + " appears!");
 
             printLine();
-            std::cout << "CYCLE: " << count << "\n";
             std::cout << "Player Health: " << player__health << "\n";
             std::cout << enemy__name << " Health: " << enemy__health << "\n";
             printLine();
@@ -394,6 +392,44 @@ int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
                 break;
             }
 
+            system("cls");
+
+            if (enemy__health > 0)
+            {
+                std::cout << "\n"
+                          << enemy__name << " attacks!\n";
+                if (enemy__name == "GOBLIN")
+                {
+                    goblinanimation();
+                }
+                else if (enemy__name == "MAGE")
+                {
+                    mageanimation();
+                }
+                else
+                {
+                    orcanimation();
+                }
+                P1.take__damage(enemy__damage);
+            }
+
+            if (enemy__health <= 0)
+            {
+                std::cout << "\n"
+                          << enemy__name << " has been defeated!\n";
+
+                system("pause");
+                break;
+            }
+
+            if (P1.gethealth() <= 0)
+            {
+                std::cout << "\nGAME OVER: You died.\n";
+                break;
+            }
+        }
+
+  return 0;
 }
 
 
