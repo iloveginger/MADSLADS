@@ -12,8 +12,8 @@ g++ main.cpp Player.cpp Goblin.cpp Mage.cpp Orc.cpp -o MADLADS.exe
 ::NOTE - use  start cmd /k MADLADS.exe If you want the game to open in a new window and instead of /k use /c if u want the new window to auto close
 IF EXIST MADLADS.exe (
     :: Play mp3 asynchronously with Windows Media Player
-    start "" "C:\Program Files\Windows Media Player\wmplayer.exe" /play /close "C:\Users\USER\Documents\College\Classes\MADSLADS\MADSLADS\Chill Music.mp3"
     ::Displays this message if compilation was successful
+    start "" "C:\Program Files\Windows Media Player\wmplayer.exe" /play /close "C:\Users\USER\Documents\College\Classes\MADSLADS\MADSLADS\Chill Music.mp3"
     echo NOW RUNNING MADLADS... 
     start cmd /c MADLADS.exe
 

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <windows.h>
-#include <MMsystem.h>
 
 const char Battletext[] = "            BATTLE STARTED!!!   ";
 
@@ -23,7 +22,7 @@ void battlestart(int delay_ms = 20) {
 }
 void Playmusic(){
         PlaySoundW(L"C:\\Users\\USER\\Documents\\College\\Classes\\MADSLADS\\MADSLADS\\Wild Pokémon Battle - Pokémon RedBlueYellow Soundtrack.wav", NULL, SND_SYNC);
-        //Cannot be added because external library Mmsystems.h must be downloaded
+        //Cannot be added because external library Mmsystems.h must be downloaded, instead music is running from bat file
 }
 int main() {
     animateLineForward();
