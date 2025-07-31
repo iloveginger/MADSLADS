@@ -67,6 +67,86 @@ void printHeader(const std::string &title)
     std::cout << std::setw(25 + title.length() / 2) << title << "\n";
     printLine();
 }
+void mageanimation()
+{
+    int frame = 0;
+    while (frame < 3)
+    {
+        system("cls");
+        if (frame == 0)
+        {
+            std::cout << R"(
+                           /\
+                          /  \
+                         |    |
+                       --:'''':--
+                         :'_' :
+                         _:"":\___
+              ' '      ____.' :::     '._
+             . *=====<<=)           \    :
+              .  '      '-'-'\_      /'._.'
+                               \====:_ ""
+                              .'     \\
+                             :       :
+                            /   :    \
+                           :   .      '.
+               ,. _        snd :  : :      :
+            '-'    ).          :__:-:__.;--'
+          (        '  )        '-'   '-'
+Mage prepares a powerful spell...
+)";
+        }
+        else if (frame == 1)
+        {
+            std::cout << R"(
+                           /\
+                          /  \
+                         | () |
+                       --:'''':--
+                         :'_' :
+                         _:"":\___
+              ' '      ____.' :::     '._
+             . *=====<<=)           \    :
+              .  '      '-'-'\_      /'._.'
+                               \====:_ ""
+                              .'     \\
+                             :       :
+                            /   :    \
+                           :   .      '.
+               ,. _        snd :  : :      :
+            '-'    ).          :__:-:__.;--'
+          (        '  )        '-'   '-'
+Mage channels magical energy!
+)";
+        }
+        else if (frame == 2)
+        {
+            std::cout << R"(
+                           /\
+                          /  \
+                         |  () |
+                       --:'''':--
+                         :'_' :
+                         _:"":\___
+  ===========            ' '      ____.' :::     '._
+======================><<=)  *>>>>>  \    :
+  ===========            .  '      '-'-'\_      /'._.'
+                               \====:_ ""
+                              .'     \\
+                             :       :
+                            /   :    \
+                           :   .      '.
+               ,. _        snd :  : :      :
+            '-'    ).          :__:-:__.;--'
+          (        '  )        '-'   '-'
+Mage casts a blazing fireball!
+)";
+        }
+        Sleep(900);
+        frame++;
+    }
+    system("cls");
+}
 void goblinanimation()
 {
     int frame = 0;
@@ -279,9 +359,156 @@ Orc slashes with his axe!
     system("cls");
 }
 
+void playerattackslash(){
+     int frame = 0;
+    while (frame < 3)
+    {
+        system("cls");
 
+        if (frame == 0)
+        {
+            std::cout << R"(
+      ⠀⠀PLAYER UNSHEATS SWORD        
+                     .--.
+       >            /.--.\
+          `         |====|
+      `             |`::`|
+               .-;`\..../`;-.
+         /  /  |...::...|  \
+          |   /'''::'''\   |
+          \ /\;-,/\   ::   /\--;
+          |\ <` >  >._::_.<,<__><|>
+           `""`   /   ^^   \     <|>
+                  |        |       <|>
+                  |        |
+                      __   |  
+                     (  )  
+)";
+        }
+        else if (frame == 1)
+        {
+            std::cout << R"(
+ ⠀⠀HAHAHAHA MORTALLL         
+          | ,          .--.
+       < <|> >        /.--.\
+       < <|> >`       |====|
+       < <|> >        |`::`|
+         <|>      .-;`\..../`;-.
+         /\\/  /  |...::...|  \
+         |:'\ |   /'''::'''\   |
+          \ /\;-,/\   ::   /\--;
+          |\ <` >  >._::_.<,<__>
+          | `""`   /   ^^   \
+          |        |        |  /
+          |        |        |==|>
+                      __   |  \
+                     (  )  
+              CHARGES ATTACK
+)";
+        }
+        else if (frame == 2)
+        {
+            std::cout << R"(
+      AHHHHHHHHHHHHHHHHH         
+         | ,           .--.
+    --< <|> >--       /.--.\
+ ---- < <|> > ----    |====|
+     --< <|> > --     |`::`|
+         <|>      .-;`\..../`;-.
+         /\\/  /  |...::...|  \
+         |:'\ |   /'''::'''\   |
+          \ /\;-,/\   ::   /\--;
+          |\ <` >  >._::_.<,<__>
+          | `""`   /   ^^   \
+          |        |        |  
+          |        |        |  
+                      __      
+                     (  )     
+               SWORD SHEATHED
+)";
+        }
+
+        Sleep(900);
+        frame++;
+    }
+    system("cls");
+}
+void playerattackpunch(){
+     int frame = 0;
+    while (frame < 3)
+    {
+        system("cls");
+
+        if (frame == 0)
+        {
+            std::cout << R"(
+      ⠀⠀PLAYER UNSHEATS FISTS        
+                     .--.
+       >            /.--.\
+          `         |====|
+      `             |`::`|
+               .-;`\..../`;-.
+         /  /  |...::...|  \ <|><|>
+          |   /'''::'''\   |   <|><|>
+          \ /\;-,/\   ::   /\- <|><|>
+          |\ <` >  >._::_.<,<_  OO
+           `""`   /   ^^   \     
+                  |        |       
+                  |        |
+                      __   |  
+                     (  )  
+)";
+        }
+        else if (frame == 1)
+        {
+            std::cout << R"(
+ ⠀⠀HAHAHAHA MORTALLL         
+         PLAYER CHARGES FISTS        
+                     .--.
+       >            /.--.\
+          `         |====|
+      `             |`::`|
+               .-;`\..../`;-.
+         /  /  |...::...|  \ <|><|>
+          |   /'''::'''\   |    <|><|>
+          \ /\;-,/\   ::   /\--;    <|><|>
+          |\ <` >  >._::_.<,<__><|>   OO
+           `""`   /   ^^   \     
+                  |        |       
+                  |        |
+                      __   |  
+                     (  )  
+)";
+        }
+        else if (frame == 2)
+        {
+            std::cout << R"(
+      AHHHHHHHHHHHHHHHHH         
+            
+                       .--.
+ --     - >           /.--.\
+ OOOOOO<|><|>`        |====|
+OOOOOO  <|><|>   -    |`::`|
+   OOOOOO<|><|>   .-;`\..../`;-.
+    -     <|><|>/  |...::...|  \ <|><|>
+                   /'''::'''\   |    <|><|>
+            /\;-,/\   ::   /\--;    <|><|>
+          |\ <` >  >._::_.<,<__><|>   <|><|>
+           `""`    /   ^^   \     
+                   |        |       
+                   |        |
+                       __   |  
+                      (  )  
+)";
+        }
+
+        Sleep(900);
+        frame++;
+    }
+    system("cls");
+}
 //ATTACK ARENA FUNCTION STARTS HERE
-int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
+int attackArena(Player &P1, Goblin G1, Mage M1, Orc O1, int enemyType, int &isDead){
 
     int action, atk_action, inv_action;
     // int count = 0;
@@ -339,6 +566,7 @@ int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
                 if (atk_action == 1)
                 {
                     player__damage_slash = P1.slashattack();
+                    playerattackslash();
                     if (random__enemy == 0)
                         G1.take__damage(player__damage_slash);
                     else if (random__enemy == 1)
@@ -349,6 +577,7 @@ int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
                 else
                 {
                     player__damage_punch = P1.punchattack();
+                    playerattackpunch();
                     if (random__enemy == 0)
                         G1.take__damage(player__damage_punch);
                     else if (random__enemy == 1)
@@ -425,7 +654,8 @@ int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
             if (P1.gethealth() <= 0)
             {
                 std::cout << "\nGAME OVER: You died.\n";
-                break;
+                isDead = 1;
+                return 0;
             }
         }
 
@@ -447,6 +677,14 @@ int main()
     
     int enemyType;
 
+    int isDead = 0;
+
+    int new_health;
+
+    int temp_potion_health = 0;
+    int temp_potion_defense= 0;
+    int temp_potion_attack= 0;
+
 // Initialize map with numbers or dots
     for (int i = 0; i < 64; i++) {
         map[i] = '.';  // use '.' for empty cell
@@ -466,6 +704,12 @@ int main()
 
   while (true) {
         system("cls");
+
+        if(isDead){
+          std::cout << '\n' << "YOU DIED!!! GAME OVER!!!" << '\n';
+          break;
+        }
+
         map_func(hero_cp, hero_pp);
 
         std::cout << "\nUse W/A/S/D to move, Q to quit: ";
@@ -505,11 +749,11 @@ int main()
           enemyType = getRandomEnemy();
 
           if(enemyType == 0){
-            attackArena(P1, G1, M1, O1, enemyType);
+            new_health = attackArena(P1, G1, M1, O1, enemyType, isDead);
           }else if(enemyType == 1){
-            attackArena(P1, G1, M1, O1, enemyType);
+            new_health = attackArena(P1, G1, M1, O1, enemyType, isDead);
           }else{
-            attackArena(P1, G1, M1, O1, enemyType);
+            new_health = attackArena(P1, G1, M1, O1, enemyType, isDead);
           }
          
         }
