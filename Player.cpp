@@ -88,3 +88,7 @@ void Player::attack__potion()
         cout << "You Ran Out Of attackpotions\n";
     }
 }
+
+void Player::update__health(int new_health){
+  health = new_health; 
+}

@@ -27,6 +27,8 @@ public:
     void health__potion();
     void defence__potion();
     void attack__potion();
+
+    void update__health(int new_health);
 };
 
 #endif

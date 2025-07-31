@@ -281,7 +281,7 @@ Orc slashes with his axe!
 
 
 //ATTACK ARENA FUNCTION STARTS HERE
-int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
+int attackArena(Player &P1, Goblin G1, Mage M1, Orc O1, int enemyType, int &isDead){
 
     int action, atk_action, inv_action;
     // int count = 0;
@@ -425,7 +425,8 @@ int attackArena(Player P1, Goblin G1, Mage M1, Orc O1, int enemyType){
             if (P1.gethealth() <= 0)
             {
                 std::cout << "\nGAME OVER: You died.\n";
-                break;
+                isDead = 1;
+                return 0;
             }
         }
 
@@ -447,6 +448,14 @@ int main()
     
     int enemyType;
 
+    int isDead = 0;
+
+    int new_health;
+
+    int temp_potion_health = 0;
+    int temp_potion_defense= 0;
+    int temp_potion_attack= 0;
+
 // Initialize map with numbers or dots
     for (int i = 0; i < 64; i++) {
         map[i] = '.';  // use '.' for empty cell
@@ -466,6 +475,12 @@ int main()
 
   while (true) {
         system("cls");
+
+        if(isDead){
+          std::cout << '\n' << "YOU DIED!!! GAME OVER!!!" << '\n';
+          break;
+        }
+
         map_func(hero_cp, hero_pp);
 
         std::cout << "\nUse W/A/S/D to move, Q to quit: ";
@@ -505,11 +520,11 @@ int main()
           enemyType = getRandomEnemy();
 
           if(enemyType == 0){
-            attackArena(P1, G1, M1, O1, enemyType);
+            new_health = attackArena(P1, G1, M1, O1, enemyType, isDead);
           }else if(enemyType == 1){
-            attackArena(P1, G1, M1, O1, enemyType);
+            new_health = attackArena(P1, G1, M1, O1, enemyType, isDead);
           }else{
-            attackArena(P1, G1, M1, O1, enemyType);
+            new_health = attackArena(P1, G1, M1, O1, enemyType, isDead);
           }
          
         }
