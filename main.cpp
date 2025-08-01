@@ -15,6 +15,11 @@
 
 #include <iostream>
 #include <windows.h>
+
+
+//MOHAK MULA COMMENT GARNA
+
+
 // func for welcome animation
 const char Welcometext[] = "            WELCOME TO MADSLADS   ";
 
