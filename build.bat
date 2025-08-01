@@ -13,7 +13,7 @@ g++ main.cpp Player.cpp Goblin.cpp Mage.cpp Orc.cpp -o MADLADS.exe
 IF EXIST MADLADS.exe (
     :: Play mp3 asynchronously with Windows Media Player
     ::Displays this message if compilation was successful
-    start "" "C:\Program Files\Windows Media Player\wmplayer.exe" /play /close "D:\MADSLADS\MADSLADS\Chill Music.mp3"
+    start "" "C:\Program Files\Windows Media Player\wmplayer.exe" /play /close "C:\Users\USER\Documents\College\Classes\MADSLADS\MADSLADS\Chill Music.mp3"
     echo NOW RUNNING MADLADS... 
     start cmd /c MADLADS.exe
 
