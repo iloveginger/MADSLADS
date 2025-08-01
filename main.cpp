@@ -718,6 +718,8 @@ int attackArena(Player &P1, Goblin G1, Mage M1, Orc O1, int enemyType, int &isDe
 
 int main()
 {
+  system("pause");//shows a enter smth to continue so that we can adjust things
+  system("cls");
   // ANIMATE IN FUNCTION CALL
   animateLineForward();
   Welcomestart();
